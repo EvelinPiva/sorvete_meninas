@@ -1,33 +1,23 @@
-export default class Sorvete{
-    constructor(raio,altura){
-        this.raio = raio 
+export default class Sorvete {
+    constructor(raio,altura) {
+        this.raio = raio
         this.altura = altura
+        this.densidade = 0.6 // densidade do sorvete em g/cm³
     }
-    calcularCilindro(){
+
+    calcularCilindro() {
         let area = Math.PI * this.raio * this.raio
         return area
     }
-    calcularPeso(){
-        let peso = this.calcularVolume() * (0,6)
-        return peso
-    }
-    calcularVolume(){
-        let volume = this.altura * this.altura
+
+    calcularVolume() {
+        let volume = this.altura * this.calcularCilindro()
         return volume
     }
-    calcularLista(){
-        
-    }
-    calcularCustoTotal(){
 
+    // relacionamento entre volume e a densidade do sorvete, independente do tamanho
+    // regra de negócio da densidade constante do sorvete em 0,6 g/cm³
+    getPesoUnitario() {
+        return this.calcularVolume() * this.densidade
     }
-    calcularCustoPorPote(){
-
-    }
-
 }
-// RF03: O sistema deve calcular a lista de compras de
-// ingredientes proporcional à tonelagem escolhida.
-
-// RF04: O sistema deve exibir o Custo Total de produção e o Custo
-// por Pote a partir de uma referência de preço padrão real.                          

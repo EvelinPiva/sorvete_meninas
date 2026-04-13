@@ -2,18 +2,17 @@ import Sorvete from "./models/Mocha.js"
 import Receita from "./models/Receita.js"
 import Custo from "./models/Custo.js"
 
-// Usuário define o tipo de Sorvete Mocha (ex: Pote 500ml)
-// No exemplo abaixo: 500 (ml ou gramas), 0.2 (fator de densidade ou calda)
-const mochaPedido = new Sorvete(500, 0.2)
+// RF01: Pote 500ml - raio = 5cm, altura = 6.37cm ≈ 500g
+const mochaPedido = new Sorvete(5, 6.37)
 const pesoSorvete = mochaPedido.getPesoUnitario()
 
 // Verificando produção da receita de Mocha
 const receita = new Receita()
-const qtdeIngredientes = receita.calcularQtdeIngredientes() 
+const qtdeIngredientes = receita.calcularQtdeIngredientes()
 const qtdeSorvete = receita.calcularQtdeSorvete(pesoSorvete)
 
 console.log(`A quantidade de sorvete Mocha produzida é: ${qtdeSorvete}`)
-console.log('--- Quantidade de Ingredientes (Café, Chocolate, Leite) ---')
+console.log('Quantidade de Ingredientes (Leite, Creme, Café, Chocolate, Açúcar)')
 console.table(qtdeIngredientes)
 
 // Calculando custos de produção
@@ -25,7 +24,3 @@ console.table(precosIngredientes)
 
 console.log(`O custo total de produção é: R$ ${custo.totalCusto}`)
 console.log(`O custo por unidade de Mocha é: R$ ${(custo.totalCusto / qtdeSorvete).toFixed(2)}`)
-
-// RF01: O sistema deve permitir a escolha entre 3 tamanhos de
-// recipientes cilíndricos: pequenos de 400g, médios de 900g ou
-// grandes de 1700g.
