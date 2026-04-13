@@ -25,3 +25,7 @@ console.table(precosIngredientes)
 
 console.log(`O custo total de produção é: R$ ${custo.totalCusto}`)
 console.log(`O custo por unidade de Mocha é: R$ ${(custo.totalCusto / qtdeSorvete).toFixed(2)}`)
+
+// RF01: O sistema deve permitir a escolha entre 3 tamanhos de
+// recipientes cilíndricos: pequenos de 400g, médios de 900g ou
+// grandes de 1700g.
