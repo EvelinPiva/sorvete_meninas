@@ -1,11 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sorvete Mocha — Calculadora de Produção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --cafe:    #2C1A0E;
+            --mocha:   #6B3F22;
+            --caramel: #C07840;
+            --cream:   #F5ECD7;
+            --light:   #FBF6EE;
+            --text:    #1E1008;
+            --muted:   #8A6A50;
+            --radius:  12px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--cafe);
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--muted);
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #E8DDD0;
+            border-radius: var(--radius);
+            padding: 32px;
+            width: 100%;
+            max-width: 540px;
+            box-shadow: 0 4px 24px rgba(44,26,14,0.07);
+        }
+
+        .card + .card {
+            margin-top: 24px;
+        }
+
+        .card h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--mocha);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--mocha);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .field select,
+        .field input {
+            padding: 10px 14px;
+            border: 1.5px solid #DDD0C4;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--light);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .field select:focus,
+        .field input:focus {
+            border-color: var(--caramel);
+        }
+
+        .field .hint {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        button:active { transform: scale(0.98); }
+
+        #btn-calcular {
+            background: var(--cafe);
+            color: var(--cream);
+        }
+
+        #btn-calcular:hover { opacity: 0.88; }
+
+        #btn-limpar {
+            background: var(--cream);
+            color: var(--mocha);
+            border: 1.5px solid #DDD0C4;
+        }
+
+        #btn-limpar:hover { background: #EDE3D5; }
+
+        /* Área de resultado */
+        #resposta {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        #resposta h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--cafe);
+            margin-bottom: 12px;
+        }
+
+        #resposta h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1rem;
+            color: var(--mocha);
+            margin: 20px 0 10px;
+        }
+
+        #resposta p {
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        #resposta strong {
+            color: var(--mocha);
+        }
+
+        #resposta table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        #resposta thead {
+            background: var(--cream);
+        }
+
+        #resposta th {
+            text-align: left;
+            padding: 8px 12px;
+            font-weight: 600;
+            color: var(--mocha);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        #resposta td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #F0E8DC;
+            color: var(--text);
+        }
+
+        #resposta tbody tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <header>
+        <h1>☕ Sorvete Mocha</h1>
+        <p>Calculadora de produção para 1 tonelada de massa</p>
+    </header>
+
+    <!-- Card de entrada de dados -->
+    <div class="card">
+        <h2>Dados do Sorvete</h2>
+
+        <div class="field">
+            <label for="tamanho">Tamanho pré-definido</label>
+            <select id="tamanho">
+                <option value="35">Padrão (diâmetro 35 cm)</option>
+                <option value="20">Pequeno (diâmetro 20 cm)</option>
+                <option value="50">Grande (diâmetro 50 cm)</option>
+                <option value="custom">Personalizado</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="diametro">Diâmetro (cm)</label>
+            <input type="number" id="diametro" value="35" min="1" step="0.1" placeholder="Ex: 35">
+            <span class="hint">O raio será calculado automaticamente (diâmetro ÷ 2).</span>
+        </div>
+
+        <div class="field">
+            <label for="espessura">Espessura / Altura (cm)</label>
+            <input type="number" id="espessura" value="0.5" min="0.1" step="0.1" placeholder="Ex: 0.5">
+        </div>
+
+        <div class="btn-row">
+            <button id="btn-calcular">Calcular Produção</button>
+            <button id="btn-limpar">Limpar</button>
+        </div>
+    </div>
+
+    <!-- Card de resultado -->
+    <div class="card">
+        <h2>Resultado</h2>
+        <div id="resposta">
+            <p>Insira os dados do sorvete e clique em <strong>'Calcular Produção'</strong> para ver o rendimento, ingredientes e custos.</p>
+        </div>
+    </div>
+
+    <script type="module" src="Mocha.prog.js"></script>
+
 </body>
 </html>

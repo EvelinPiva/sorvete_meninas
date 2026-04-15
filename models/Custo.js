@@ -19,13 +19,11 @@ export default class Custo {
         // Multiplicamos a qtde (gramas * 1000 = kg) pelo preço - farina, sal, fermento açúcar
         // Multiplicamos a qtde (mililitros * 1000 = L) pelo preço - azeite e água
         this.preco = {
-            farinha: Number(((qtdeIngredientes.farinha / 1000) * this.farinha).toFixed(2)),
-            agua: Number(((qtdeIngredientes.agua / 1000) * this.agua).toFixed(2)),
-            azeite: Number(((qtdeIngredientes.azeite / 1000) * this.azeite).toFixed(2)),
-            sal: Number(((qtdeIngredientes.sal / 1000) * this.sal).toFixed(2)),
-            fermento: Number(((qtdeIngredientes.fermento / 1000) * this.fermento).toFixed(2)),
             acucar: Number(((qtdeIngredientes.acucar / 1000) * this.acucar).toFixed(2)),
-            ovo: qtdeIngredientes.ovo * this.ovo // Ovo já é unidade
+            leite: Number(((qtdeIngredientes.leite / 1000) * this.leite).toFixed(2)),
+            creme: Number(((qtdeIngredientes.creme / 1000) * this.creme).toFixed(2)),
+            cafe: Number(((qtdeIngredientes.cafe / 1000) * this.cafe).toFixed(2)),
+            caramelo: Number(((qtdeIngredientes.caramelo / 1000) * this.caramelo).toFixed(2))
         }
 
         this.somarTotalCusto()
@@ -35,9 +33,8 @@ export default class Custo {
 
     somarTotalCusto() {
         // Soma os valores já formatados
-        const somaBruta = this.preco.farinha + this.preco.agua + this.preco.azeite + 
-                          this.preco.sal + this.preco.fermento + this.preco.acucar + 
-                          this.preco.ovo
+        const somaBruta = this.preco.acucar + this.preco.leite + this.preco.creme + 
+                          this.preco.cafe + this.preco.caramelo
         
         this.totalCusto = Number(somaBruta.toFixed(2))
     }
