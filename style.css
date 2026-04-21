@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+label, p, td, select, input, option {
+    font-weight: normal;
+}
+
+/* --- ESTILOS MOBILE (Padrão: iPhone) --- */
+html, body {
+    background: linear-gradient(
+        rgb(255, 187, 235),
+        rgb(255, 215, 243),
+        rgb(255, 225, 246),
+        rgb(251, 226, 244),
+        rgb(250, 236, 231),
+        rgb(238, 215, 208)
+    );
+    min-height: 100vh;
+    max-width: 390px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* ===== nav ===== */
+.nav {
+    background-color: #5f3327;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: #f5ede6;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #e8b4a0;
+}
+
+.nav-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #e8d5c8;
+    border: 2px solid #e0c8bc;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.nav-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cabecalho {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 120px;
+    height: 120px;
+    border: solid 1px black;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.txt-logo p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+
+.txt-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5f3327;
+    text-align: center;
+    max-width: 224px;
+}
+
+.ent-dados {
+    margin-top: 24px;
+    padding: 0 16px;
+    color: #5f3327;
+}
+
+.div-dados {
+    width: 100%;
+    min-height: 40px;
+    margin-top: 16px;
+    background-color: #fff9fa;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.div-dados input, .div-dados select {
+    border: none;
+    background-color: transparent;
+    width: 145px;
+    min-height: 40px;
+    color: #5f3327;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.btn button {
+    width: 100px;
+    height: 48px;
+    background-color: #5f3327;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.saida-dados {
+    margin-top: 16px;
+    padding: 0 16px;
+}
+
+.saida-dados h2 {
+    text-align: center;
+    color: #5f3327;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+}
+
+/* --- ESTILOS DINÂMICOS --- */
+#resposta {
+    background-color: whitesmoke;
+    padding: 16px;
+    border-radius: 8px;
+    color: #5f3327;
+    font-size: 1.2rem;
+}
+
+#resposta h3, #resposta h4 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+#resposta p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #5f3327;
+    padding: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+th {
+    background-color: #5f3327;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: #5f3327;
+    font-weight: normal;
+}
+
+/* --- MEDIA QUERY PARA DESKTOP --- */
+@media (min-width: 720px) {
+    html, body {
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: hidden;
+        background-color: #e8f5e9;
+    }
+
+    .cabecalho {
+        justify-content: center;
+        gap: 32px;
+        padding: 32px;
+    }
+
+    .logo img {
+        width: 200px;
+        height: 200px;
+        border-radius: 16px;
+    }
+
+    .txt-logo {
+        font-size: 3rem;
+        text-align: left;
+        max-width: 500px;
+    }
+
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 32px;
+        border-radius: 16px;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .ent-dados {
+        margin: 0 auto;
+    }
+
+    .div-dados {
+        min-height: 64px;
+        padding: 0 32px;
+        margin-top: 24px;
+    }
+
+    .div-dados label {
+        font-size: 1.5rem;
+    }
+
+    .div-dados input, .div-dados select {
+        width: 200px;
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        gap: 32px;
+        margin-top: 48px;
+    }
+
+    .btn button {
+        width: 200px;
+        height: 64px;
+        font-size: 1.5rem;
+    }
+
+    .saida-dados h2 {
+        font-size: 2.5rem;
+        margin-top: 32px;
+    }
+
+    #resposta {
+        font-size: 1.5rem;
+        padding: 32px;
+    }
+
+    th, td {
+        padding: 12px;
+        font-size: 1.3rem;
+    }
+}
