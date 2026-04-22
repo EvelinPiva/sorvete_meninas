@@ -31,8 +31,7 @@ botaoCalcular.addEventListener('click', () => {
     // --- A MESMA LÓGICA COMO FEITA NO index.js ---
 
     // Passo 1: Geometria do Sorvete
-
-    const tamanho = new Sorvete(diametro / 2, espessura)
+    const tamanho = new Sorvete(diametro, espessura)
     const pesoDoSorvete = tamanho.getPesoUnitario()
 
     // Passo 2: Produção da Receita
@@ -43,7 +42,6 @@ botaoCalcular.addEventListener('click', () => {
     console.log(`A quantidade de sorvete M é: ${qtdeSorvete}`)
     console.log('--- Quantidade de Ingredientes ---')
     console.table(qtdeIngredientes)
-
 
     // Passo 3: Custos Financeiros
     const custo = new Custo()
@@ -61,9 +59,9 @@ botaoCalcular.addEventListener('click', () => {
     // Montando o texto e a tabela que vão aparecer na tela (EM KG E LITROS)
     const relatorioNaTela = `
         <h3>Relatório: 1 Tonelada de Massa</h3>
-        <p><strong>Rendimento:</strong> ${qtdeSorvete} pizzas inteiras</p>
+        <p><strong>Rendimento:</strong> ${qtdeSorvete} sorvetes inteiros</p>
         <p><strong>Custo total de produção:</strong> R$ ${custo.totalCusto}</p>
-        <p><strong>Custo de massa por pizza:</strong> R$ ${custoPorSorvete}</p>
+        <p><strong>Custo por sorvete:</strong> R$ ${custoPorSorvete}</p>
         
         <br>
         <h4>Tabela de Ingredientes e Custos</h4>
@@ -101,7 +99,6 @@ botaoCalcular.addEventListener('click', () => {
                     <td>${(qtdeIngredientes.caramelo / 1000).toFixed(2)} kg</td>
                     <td>R$ ${precosIngredientes.caramelo}</td>
                 </tr>
-                <tr>
             </tbody>
         </table>
     `

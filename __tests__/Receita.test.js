@@ -10,39 +10,37 @@ describe('Testes da Regra de Negócio: Classe Receita', () => {
         const proporcao = receitaPadrao.calcularQtdeIngredientes()
 
         // 3. VALIDAR:
-        // A) Validando se a soma do peso base padrão está correta (200+134+5+4.5+3.5+5+56)
-        expect(receitaPadrao.pesoBase).toBe(408)
+        // A) Validando se a soma do peso base padrão está correta (80+480+170+20+150)
+        expect(receitaPadrao.pesoBase).toBe(900)
 
-        // B) Validando a Farinha: 200 * (1.000.000 / 408) = 490196.078... toFixed(2) = 490196.08
-        expect(proporcao.farinha).toBe(490196.08)
+        // B) Validando o Açúcar: 80 * (1.000.000 / 900) = 88888.888... toFixed(2) = 88888.89
+        expect(proporcao.acucar).toBe(88888.89)
 
-        // C) Validando Regra de Negócio dos Ovos (Arredondamento para CIMA)
-        // 1.000.000 / 408 = 2450.98... logo, precisaremos de 2451 ovos inteiros
-        expect(proporcao.ovo).toBe(2451)
-    });
-
-    test('Deve calcular a quantidade de pizzas inteiras (Rendimento)', () => {
-        // 1. PREPARAR
-        const receita = new Receita()
-        
-        // Pegando o peso exato da pizza média que descobrir no teste da Pizza!
-        const pesoDaPizzaMedia = 408.898 
-
-        // 2. AGIR
-        const totalDePizzas = receita.calcularQtdePizza(pesoDaPizzaMedia)
-
-        // 3. VALIDAR: Regra de Negócio da Pizza (Arredondamento para BAIXO)
-        // 1.000.000 / 408.898 = 2445.597... A regra exige cortar as sobras (Math.floor)
-        expect(totalDePizzas).toBe(2445)
-    });
-
-    test('Deve permitir criar uma receita com pesos personalizados', () => {
-        // PREPARAR: Criando uma receita com o dobro de farinha (400) e água (268)
-        const receitaEspecial = new Receita(400, 268, 5, 4.5, 3.5, 5, 56)
-        
-        // VALIDAR
-        // O peso base agora deve ser maior
-        expect(receitaEspecial.pesoBase).toBe(742)
+        // C) Validando o Leite: 480 * (1.000.000 / 900) = 533333.333... toFixed(2) = 533333.33
+        expect(proporcao.leite).toBe(533333.33)
     })
 
+    test('Deve calcular a quantidade de sorvetes inteiros (Rendimento)', () => {
+        // 1. PREPARAR
+        const receita = new Receita()
+
+        // Pegando o peso exato do sorvete médio descoberto no teste do Sorvete!
+        const pesoDoSorveteMedio = 408.898
+
+        // 2. AGIR
+        const totalDeSorvetes = receita.calcularQtdeSorvete(pesoDoSorveteMedio)
+
+        // 3. VALIDAR: Regra de Negócio do Sorvete (Arredondamento para BAIXO)
+        // 1.000.000 / 408.898 = 2445.597... A regra exige cortar as sobras (Math.floor)
+        expect(totalDeSorvetes).toBe(2445)
+    })
+
+    test('Deve permitir criar uma receita com pesos personalizados', () => {
+        // PREPARAR: Criando uma receita com o dobro de açúcar (160) e leite (960)
+        const receitaEspecial = new Receita(160, 960, 170, 20, 150)
+
+        // VALIDAR
+        // O peso base agora deve ser: 160+960+170+20+150 = 1460
+        expect(receitaEspecial.pesoBase).toBe(1460)
+    })
 })
