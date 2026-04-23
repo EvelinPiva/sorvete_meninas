@@ -64,45 +64,7 @@ body {
     object-fit: cover;
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px 24px;
-}
-
-.hero-texto h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #5f3327;
-    line-height: 1.1;
-}
-
-.hero-texto p {
-    font-size: 0.9rem;
-    color: #b89181;
-    font-style: italic;
-    margin: 8px 0 16px;
-}
-
-
-.hero-texto button {
-    background: #5f3327;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.hero-img {
-    width: 160px;
-    mix-blend-mode: multiply;
-    /* some o fundo preto */
-}
-
-.sobre-mocha {
+.contato {
     width: calc(100% - 32px);
     margin: 24px auto;
     padding: 32px 24px;
@@ -111,48 +73,127 @@ body {
     box-sizing: border-box;
 }
 
-.sobre-mocha h2 {
+.contato h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     color: #5f3327;
     margin-bottom: 12px;
 }
 
-.sobre-texto {
+.contato-texto {
     font-size: 0.95rem;
     color: #7a4035;
     line-height: 1.7;
     margin-bottom: 24px;
 }
 
-.ingredientes,
-.diferencial {
+.card-dev {
     background-color: #ffe1f6;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
 }
 
-.diferencial h3 {
+.card-dev img {
+    width: 125px;
+    height: 125px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.info-dev {
+    flex: 1;
+}
+
+.info-dev h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #5f3327;
     margin-bottom: 8px;
 }
 
-.diferencial p {
+.info-dev p {
     font-size: 0.9rem;
     color: #7a4035;
     line-height: 1.6;
+    margin-bottom: 10px;
 }
 
-.frase-impacto {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #5f3327;
+.info-dev ul {
+    padding-left: 18px;
+    margin-bottom: 14px;
+}
+
+.info-dev li {
+    font-size: 0.88rem;
+    color: #7a4035;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+.redes {
+    display: flex;
+    gap: 12px;
+}
+
+.redes a {
+    width: 34px;
+    height: 34px;
+
+    background-color: #fff9fa;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.redes a:hover {
+    background-color: #f7cfe9;
+}
+
+.icone-rede {
+    width: 35px !important;
+    height: 25px !important;
+
+    object-fit: contain;
+}
+
+.foto-equipe {
+    width: calc(100% - 32px);
+
+    margin: 24px auto;
+
+    background-color: #fff9fa;
+
+    border-radius: 16px;
+
+    padding: 24px;
+
     text-align: center;
-    margin-top: 24px;
-    padding-top: 16px;
-    border-top: 1px solid #e0c8bc;
+}
+
+.foto-equipe h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.5rem;
+
+    color: #5f3327;
+
+    margin-bottom: 18px;
+}
+
+.foto-equipe img {
+    width: 100%;
+
+    border-radius: 16px;
+
+    object-fit: cover;
 }

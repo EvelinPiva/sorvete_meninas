@@ -7,25 +7,31 @@
     font-family: 'Playfair Display', serif;
 }
 
-label, p, td, select, input, option {
+label,
+p,
+td,
+select,
+input,
+option {
     font-weight: normal;
 }
 
 /* --- ESTILOS MOBILE (Padrão: iPhone) --- */
-html, body {
-    background: linear-gradient(
-        rgb(255, 187, 235),
-        rgb(255, 215, 243),
-        rgb(255, 225, 246),
-        rgb(251, 226, 244),
-        rgb(250, 236, 231),
-        rgb(238, 215, 208)
-    );
+html,
+body {
+    background: linear-gradient(rgb(255, 187, 235),
+            rgb(255, 215, 243),
+            rgb(255, 225, 246),
+            rgb(251, 226, 244),
+            rgb(250, 236, 231),
+            rgb(238, 215, 208));
     min-height: 100vh;
     max-width: 390px;
     overflow-x: hidden;
     margin: 0 auto;
     box-sizing: border-box;
+    overflow-x: hidden;
+
 }
 
 /* ===== nav ===== */
@@ -39,13 +45,13 @@ html, body {
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 16px;
 }
 
 .nav-links a {
     color: #f5ede6;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -123,7 +129,8 @@ html, body {
     padding: 0 16px;
 }
 
-.div-dados input, .div-dados select {
+.div-dados input,
+.div-dados select {
     border: none;
     background-color: transparent;
     width: 145px;
@@ -178,7 +185,8 @@ html, body {
     font-size: 1.2rem;
 }
 
-#resposta h3, #resposta h4 {
+#resposta h3,
+#resposta h4 {
     text-align: center;
     margin-bottom: 12px;
     font-weight: bold;
@@ -197,7 +205,8 @@ table {
     background-color: white;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #5f3327;
     padding: 8px;
     text-align: center;
@@ -217,7 +226,9 @@ td {
 
 /* --- MEDIA QUERY PARA DESKTOP --- */
 @media (min-width: 720px) {
-    html, body {
+
+    html,
+    body {
         max-width: 100%;
         margin: 0 auto;
         overflow-x: hidden;
@@ -265,7 +276,8 @@ td {
         font-size: 1.5rem;
     }
 
-    .div-dados input, .div-dados select {
+    .div-dados input,
+    .div-dados select {
         width: 200px;
         font-size: 1.5rem;
     }
@@ -291,7 +303,8 @@ td {
         padding: 32px;
     }
 
-    th, td {
+    th,
+    td {
         padding: 12px;
         font-size: 1.3rem;
     }
