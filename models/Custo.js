@@ -35,4 +35,12 @@ export default class Custo {
 
         this.totalCusto = Number(somaBruta.toFixed(2))
     }
+    calcularCustoPorPote(qtdPotes) {
+        if (qtdPotes <= 0) return 0
+        return this.totalCusto / qtdPotes
+    }
+
+    formatar(valor) {
+        return Number(valor.toFixed(2))
+    }
 }
