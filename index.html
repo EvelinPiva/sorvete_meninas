@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./Mocha.prog.js" defer></script>
+    <title>Cálculo de Produção — Gelato Mocha</title>
+</head>
+
+<body>
+
+    <!-- ===== NAV ===== -->
+    <header class="nav">
+        <nav class="nav-links">
+            <a href="./telaInicial.html">HOME</a>
+            <a href="">SOBRE NÓS</a>
+            <a href="./html/contato.html">CONTATO</a>
+        </nav>
+        <div class="nav-icon">
+            <img src="./img/LOGO_MOCHA.png" alt="logo mocha">
+        </div>
+    </header>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="./img/LOGO_MOCHA.png" alt="logo mocha">
+        </div>
+        <div class="txt-logo">
+            <p>Calculadora Produção por Tonelada</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== ENTRADA DE DADOS ===== -->
+        <section class="ent-dados">
+
+            <!-- RF01: Tamanho do pote — Pequeno (400g), Médio (900g), Grande (1700g) -->
+            <div class="div-dados">
+                <label for="tamanho">Tamanho do Pote:</label>
+                <select id="tamanho">
+                    <option value="9">Pequeno (400g)</option>
+                    <option value="14" selected>Médio (900g)</option>
+                    <option value="19">Grande (1700g)</option>
+                    <option value="custom">Personalizado</option>
+                </select>
+            </div>
+
+            <!-- RF02: Diâmetro do pote cilíndrico -->
+            <div class="div-dados">
+                <label for="diametro">Diâmetro (cm):</label>
+                <input type="number" id="diametro" value="14" min="1" step="0.1" placeholder="Ex: 14">
+            </div>
+
+            <!-- RF02: Altura do pote cilíndrico -->
+            <div class="div-dados">
+                <label for="espessura">Altura do Pote (cm):</label>
+                <input type="number" id="espessura" value="10" min="0.1" step="0.1" placeholder="Ex: 10">
+            </div>
+
+            <div class="btn">
+                <button id="btn-limpar">Limpar</button>
+                <button id="btn-calcular">Calcular Produção</button>
+            </div>
+
+        </section>
+
+        <!-- ===== SAÍDA DE DADOS ===== -->
+        <section class="saida-dados">
+            <h2>Relatório de Produção</h2>
+            <div id="resposta">
+                <p>Insira os dados do pote e clique em "Calcular Produção" para ver o
+                    rendimento, ingredientes e custos.</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

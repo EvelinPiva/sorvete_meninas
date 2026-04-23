@@ -3,6 +3,9 @@
 > Sistema de Controle de Produção Industrial para Sorvetes Artesanais  
 > **Sabor em Destaque: Café Mocha**
 
+- Figma: https://www.figma.com/design/j1iY4Avc6D0d4hZfeotpz6/Sem-t%C3%ADtulo?node-id=0-1&t=QIUhpFFTTCcisyAA-1
+
+- Trello: https://trello.com/b/28vWD3CL/projsorvete
 ---
 
 ## 1. Identificação do Projeto
@@ -18,10 +21,6 @@
 - Evelin Piva
 - Julia Zamarch Monteiro
 - Luíza Michielin Reinhardt
-
-> 🖼️ *Banner / Logotipo gerado no Figma — inserir imagem aqui*  
-> `![Banner Gelato Geométrico](./img/banner.png)`
-
 ---
 
 ## 2. Visão Geral do Sistema
