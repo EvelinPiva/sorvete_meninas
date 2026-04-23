@@ -64,43 +64,6 @@ body {
     object-fit: cover;
 }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px 24px;
-}
-
-.hero-texto h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: #5f3327;
-    line-height: 1.1;
-}
-
-.hero-texto p {
-    font-size: 0.9rem;
-    color: #b89181;
-    font-style: italic;
-    margin: 8px 0 16px;
-}
-
-
-.hero-texto button {
-    background: #5f3327;
-    color: white;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.hero-img {
-    width: 160px;
-    mix-blend-mode: multiply;
-    /* some o fundo preto */
-}
 
 .sobre-mocha {
     width: calc(100% - 32px);
